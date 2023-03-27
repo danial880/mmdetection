@@ -117,6 +117,11 @@ data
 docs/modelzoo_statistics.md
 mmdet/.mim
 work_dirs/
+checkpoints/
+train/
+val/
+train.json
+val.json
 
 # Pytorch
 *.pth

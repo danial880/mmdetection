@@ -27,5 +27,17 @@ data = dict(
         ann_file='val.json',
         img_prefix='val'))
 
+train_pipeline = [
+    dict(type='Resize', img_scale=(1888, 1300), keep_ratio=True)
+]
+test_pipeline = [
+    dict(
+        type='MultiScaleFlipAug',
+        img_scale=(1888, 1300),
+        flip=False,
+        transforms=[
+            dict(type='Resize', keep_ratio=True),
+])
+]
 # We can use the pre-trained Faster RCNN model to obtain higher performance
-load_from = 'checkpoints/faster_rcnn_x101_64x4d_fpn_1x_coco_20200204-833ee192.pth'
+#load_from = 'checkpoints/faster_rcnn_x101_64x4d_fpn_1x_coco_20200204-833ee192.pth'

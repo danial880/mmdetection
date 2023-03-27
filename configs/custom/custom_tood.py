@@ -32,4 +32,17 @@ model = dict(
         type='TOODHead',
         num_classes=2))
 
+train_pipeline = [
+    dict(type='Resize', img_scale=(1333, 800), keep_ratio=True)
+]
+test_pipeline = [
+    dict(
+        type='MultiScaleFlipAug',
+        img_scale=(1333, 800),
+        flip=False,
+        transforms=[
+            dict(type='Resize', keep_ratio=True),
+])
+]
+
 load_from = 'checkpoints/tood_r101_fpn_dconv_c3-c5_mstrain_2x_coco_20211210_213728-4a824142.pth'
